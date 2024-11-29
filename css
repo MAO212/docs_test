@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:wght@200&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F0F0F0; /* 背景色 */
+    color: #000000; /* テキストの基本色 */
+    perspective: 1000px; /* 遠近感を与える */
+}
+
+.slide-container {
+    display: flex;
+    flex-direction: row; /* 横並びにする */
+    overflow-x: auto; /* 横スクロールを可能にする */
+    width: 100vw; /* 画面幅に合わせる */
+    height: 100vh; /* 画面高さに合わせる */
+}
+
+.slide {
+    min-width: 100vw; /* 各スライドの幅を画面幅に設定 */
+    height: 100vh; /* 各スライドの高さを画面高さに設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.slide3D {
+    transform-style: preserve-3d; /* 3D効果を有効にする */
+    backface-visibility: hidden; /* 裏面を非表示にする */
+    transition: transform 0.2s; /* スムーズなトランジション */
+}
+
+.slide3D:hover {
+    transform: rotateY(100deg); /* ホバー時の回転効果 */
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px; /* 円の間隔を調整 */
+}
+
+.rotate {
+    animation: rotate 60s linear infinite; /* 60秒で360度回転 */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+h1 {
+    font-family: "Paytone One"; /* フォントファミリーを追加 */
+    color: #CCB7DD; /* テキストカラーを指定 */
+    text-transform: uppercase; /* 大文字に変換 */
+    letter-spacing: -2px; /* 文字間隔を設定 */
+    font-size: 80px; /* フォントサイズを設定 */
+    line-height: 80px; /* 行の高さを設定 */
+    text-shadow: 0 13.36px 8.896px #c4b59d, 0 -2px 1px #fff; /* テキストのシャドウを追加 */
+    transition: color 0.3s ease; /* 色の変化にアニメーション */
+}
+
+h1:hover {
+    color: #FF6F6F; /* ホバー時の色変更 */
+}
+
+h2 {
+    color: #ECC3C3; /* ダークブルー */
+    font-size: 1.8rem;
+}
+
+p {
+    color: #324B57; /* ブラック */
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.3s; /* 背景色と変形のアニメーション */
+    padding: 5px; /* パディングを追加 */
+    border-radius: 5px; /* カーブを追加 */
+}
+
+p:hover {
+    background-color: #b4c5e4; /* ホバー時の背景色 */
+    transform: scale(1.05); /* ホバー時に少し拡大 */
+}
+
+.navigation {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* ボタンを左右に配置 */
+    padding: 0 20px; /* ボタンの左右の余白 */
+}
+
+a.button {
+    display: inline-block; /* インラインブロック */
+    color: #ffffff;
+    background-color: #FDD835; /* 通常時のボタン色 */
+    padding: 10px 15px; /* ボタンのサイズ */
+    text-decoration: none;
+    border-radius: 5px; /* 角丸 */
+    transition: background-color 0.3s, transform 0.3s; /* ホバー時の色変更と拡大 */
+}
+
+a.button:hover {
+    background-color: #FF6F6F; /* ホバー時の色変更 */
+    transform: scale(1.1); /* ホバー時に少し拡大 */
+}
+
+textPath {
+    font-size: 40px; /* フォントサイズ */
+    font-family: 'Glory', sans-serif;
+    transition: fill 0.3s; /* 塗りの変化にアニメーション */
+}
+
+textPath:hover {
+    fill: #FF6F6F; /* ホバー時の色変更 */
+}
+
+/* 一部変えるときは tspanで。fillで色を変える */
+.color-red {
+    fill: red;
+}
