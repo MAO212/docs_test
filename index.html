@@ -1,190 +1,239 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="h-full">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>書籍管理サイトの設計</title>
+    <style>
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide3D {
+            transition: transform 0.3s ease-out;
+        }
+    </style>
 </head>
 
-<body>
+<body class="h-full bg-gray-50">
     <!-- スライド1: タイトル -->
-    <div class="slide slide3D" id="slide1" style="display: flex;">
-        <h1>４班</h1>
-        <h2>プロジェクト概要</h2>
-        <p>社員がログインし、会社が所持している書籍を検索や登録、レビュー登録できるシステムを作成します。</p>
-        <p>メンバー: 濱田、松本、山岸、山本</p>
+    <div class="slide slide3D active min-h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-br from-blue-500 to-purple-600 text-white"
+        id="slide1">
+        <h1 class="text-6xl font-bold mb-8">４班</h1>
+        <h2 class="text-4xl mb-6">プロジェクト概要</h2>
+        <p class="text-xl mb-4 max-w-2xl text-center">社員がログインし、会社が所持している書籍を検索や登録、レビュー登録できるシステムを作成します。</p>
+        <p class="text-lg">メンバー: 濱田、松本、山岸、山本</p>
     </div>
 
     <!-- スライド2: 活動の流れ -->
-    <div class="slide" id="slide2" style="display: none;">
-        <h1>活動の流れ</h1>
-        <p>1. 仕様書（要件定義）の受け取り</p>
-        <p>2. 外部設計の実施</p>
-        <p>3. 内部設計の実施</p>
-        <p>4. 完成と成果発表</p>
+    <div class="slide min-h-screen flex-col items-center justify-center p-8 bg-white" id="slide2">
+        <h1 class="text-4xl font-bold mb-12 text-gray-800">活動の流れ</h1>
+        <div class="space-y-6 max-w-2xl w-full mx-auto">
+            <div class="p-4 bg-blue-50 rounded-lg shadow-md">
+                <p class="text-xl text-gray-700">1. 仕様書（要件定義）の受け取り</p>
+            </div>
+            <div class="p-4 bg-blue-50 rounded-lg shadow-md">
+                <p class="text-xl text-gray-700">2. 外部設計の実施</p>
+            </div>
+            <div class="p-4 bg-blue-50 rounded-lg shadow-md">
+                <p class="text-xl text-gray-700">3. 内部設計の実施</p>
+            </div>
+            <div class="p-4 bg-blue-50 rounded-lg shadow-md">
+                <p class="text-xl text-gray-700">4. 完成と成果発表</p>
+            </div>
+        </div>
     </div>
 
     <!-- スライド3: PiTaPaの例 -->
-    <div class="slide" id="slide3" style="display: none;">
-        <h1>PiTaPaを例にした設計の説明</h1>
-        <h2>1. 仕様書</h2>
-        <p>交通機関で利用するPitapaの仕様書には、カードの機能や利用方法が記載されています。</p>
-        <h2>2. 外部設計</h2>
-        <p>ユーザーがカードをどのように使うか、例えば改札でのタッチ方法や、チャージ画面のデザインを設計します。</p>
-        <h2>3. 内部設計</h2>
-        <p>カードのデータ管理や、システムがどのようにデータを処理するのかを設計します。データベースの構造などが含まれます。</p>
-        <h2>4. コーディング</h2>
-        <p>設計に基づいて、実際にプログラムを書きます。例えば、カード情報の読み取りや決済処理のプログラムを作成します。</p>
+    <div class="slide min-h-screen flex-col p-8 bg-gray-50" id="slide3">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8 text-gray-800">PiTaPaを例にした設計の説明</h1>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-600">1. 仕様書</h2>
+                    <p class="text-gray-700">交通機関で利用するPitapaの仕様書には、カードの機能や利用方法が記載されています。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-600">2. 外部設計</h2>
+                    <p class="text-gray-700">ユーザーがカードをどのように使うか、例えば改札でのタッチ方法や、チャージ画面のデザインを設計します。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-600">3. 内部設計</h2>
+                    <p class="text-gray-700">カードのデータ管理や、システムがどのようにデータを処理するのかを設計します。データベースの構造などが含まれます。</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-600">4. コーディング</h2>
+                    <p class="text-gray-700">設計に基づいて、実際にプログラムを書きます。例えば、カード情報の読み取りや決済処理のプログラムを作成します。</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- スライド4: 外部設計 -->
-    <div class="slide" id="slide4" style="display: none;">
-        <div class="content-container">
-            <div class="left-content">
-                <h1>外部設計</h1>
-                <p>1. ユーザーインターフェースの設計</p>
-                <p>2. 画面遷移図の作成</p>
-                <p>3. データベースの設計（テーブルの構造など）</p>
-                <p>4. API設計（ログイン、書籍検索、レビュー投稿など）</p>
+    <div class="slide min-h-screen flex-col p-8 bg-gradient-to-br from-blue-50 to-indigo-50" id="slide4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl font-bold mb-8 text-gray-800">外部設計</h1>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-lg shadow text-xl text-gray-700">1. ユーザーインターフェースの設計</div>
+                    <div class="bg-white p-4 rounded-lg shadow text-xl text-gray-700">2. 画面遷移図の作成</div>
+                    <div class="bg-white p-4 rounded-lg shadow text-xl text-gray-700">3. データベースの設計（テーブルの構造など）</div>
+                    <div class="bg-white p-4 rounded-lg shadow text-xl text-gray-700">4. API設計（ログイン、書籍検索、レビュー投稿など）</div>
+                </div>
             </div>
-            <div class="right-content">
-                <img src="./flowchart_page-0001.jpg" alt="外部設計のイメージ">
+            <div class="bg-white p-4 rounded-xl shadow-lg">
+                <img src="/api/placeholder/800/600" alt="外部設計のイメージ" class="w-full h-auto rounded-lg">
             </div>
         </div>
     </div>
 
     <!-- スライド5: 内部設計 -->
-    <div class="slide" id="slide5" style="display: none;">
-        <div class="content-container">
-            <div class="left-content">
-                <h1>内部設計</h1>
-                <p>1. ディレクトリ構成の計画</p>
-                <p>2. データベースの詳細設計（カラム、インデックスなど）</p>
-                <p>3. コーディング方針</p>
+    <div class="slide min-h-screen flex-col p-8 bg-gradient-to-br from-purple-50 to-pink-50" id="slide5">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl font-bold mb-8 text-gray-800">内部設計</h1>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-lg shadow text-xl text-gray-700">1. ディレクトリ構成の計画</div>
+                    <div class="bg-white p-4 rounded-lg shadow text-xl text-gray-700">2. データベースの詳細設計（カラム、インデックスなど）</div>
+                    <div class="bg-white p-4 rounded-lg shadow text-xl text-gray-700">3. コーディング方針</div>
+                </div>
             </div>
-            <div class="right-content">
-                <img src="./diirekutori.jpg" alt="内部設計のイメージ">
+            <div class="bg-white p-4 rounded-xl shadow-lg">
+                <img src="/api/placeholder/800/600" alt="内部設計のイメージ" class="w-full h-auto rounded-lg">
             </div>
         </div>
     </div>
 
     <!-- スライド6: コーディングとテスト -->
-    <div class="slide" id="slide6" style="display: none;">
-        <div class="content-container">
-            <div class="left-content">
-                <h1>内部設計</h1>
-                <p>1. ディレクトリ構成の計画</p>
-                <p>2. データベースの詳細設計（カラム、インデックスなど）</p>
-                <p>3. コーディング方針</p>
-            </div>
-            <div class="right-content">
-                <img src="./database.jpg" alt="コーディングとテストのイメージ">
+    <div class="slide min-h-screen flex-col p-8 bg-gradient-to-br from-green-50 to-blue-50" id="slide6">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8 text-gray-800">コーディングとテスト</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-semibold mb-4 text-blue-600">実装フェーズ</h2>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">1. フロントエンド開発</p>
+                            <p class="text-gray-700">2. バックエンド開発</p>
+                            <p class="text-gray-700">3. データベース実装</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <h2 class="text-2xl font-semibold mb-4 text-blue-600">テスト計画</h2>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">1. 単体テスト</p>
+                            <p class="text-gray-700">2. 結合テスト</p>
+                            <p class="text-gray-700">3. システムテスト</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg">
+                    <img src="/api/placeholder/800/600" alt="コーディングとテストのイメージ" class="w-full h-auto rounded-lg">
+                </div>
             </div>
         </div>
     </div>
 
-
-    <!-- スライド7: 完成後の学び -->
-    <div class="slide" id="slide7" style="display: none;">
-        <h1>利用したツール群と機能について</h1>
-        <p>1. 利用したツール群</p>
-        <p>2. 実装できなかった機能</p>
-        <p>匿名性でレビュー投稿</p>
-        <p>3. 追加で実装した機能</p>
-        <p>書籍検索から書籍登録へ直接つなげる</p>
-
-        <br>
-        <br>
-        <br>
-
-        <div class="icon-container">
-            <!-- チャットGPT -->
-            <svg viewBox="0 0 200 200" width="100" height="100" class="rotate">
-                <defs>
-                    <path id="circle1" d="M100,20 A80,80 0 1,1 100,180 A80,80 0 1,1 100,20" />
-                </defs>
-                <circle cx="100" cy="100" r="80" fill="transparent" />
-                <text width="300" font-size="30" dy="10">
-                    <textPath xlink:href="#circle1">
-                        ChatGPT ・ wrtn. ・ GitHub ・ miro ・
-                    </textPath>
-                </text>
-            </svg>
-
-            <!-- Slack -->
-            <svg viewBox="0 0 200 200" width="100" height="100" class="rotate">
-                <defs>
-                    <path id="circle5" d="M100,20 A80,80 0 1,1 100,180 A80,80 0 1,1 100,20" />
-                </defs>
-                <circle cx="100" cy="100" r="80" fill="transparent" />
-                <text width="300" font-size="30" dy="10">
-                    <textPath xlink:href="#circle5">
-                        Slack ・ CodePen ・ Bootstrap ・ drawio ・
-                    </textPath>
-                </text>
-            </svg>
-
+    <!-- スライド7: 利用したツール群 -->
+    <div class="slide min-h-screen flex-col p-8 bg-gradient-to-br from-yellow-50 to-red-50" id="slide7">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8 text-gray-800">利用したツール群と機能について</h1>
+            <div class="grid gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-600">1. 利用したツール群</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">ChatGPT</div>
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">wrtn.</div>
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">GitHub</div>
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">miro</div>
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">Slack</div>
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">CodePen</div>
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">Bootstrap</div>
+                        <div class="p-4 bg-gray-50 rounded-lg text-center">drawio</div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-600">2. 実装できなかった機能</h2>
+                    <p class="text-gray-700">匿名性でレビュー投稿</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-600">3. 追加で実装した機能</h2>
+                    <p class="text-gray-700">書籍検索から書籍登録へ直接つなげる</p>
+                </div>
+            </div>
         </div>
-
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Glory:wght@200&display=swap');
-
-            .icon-container {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 180px;
-                /* 円の間隔を調整 */
-            }
-
-            textPath {
-                font-family: 'Glory', sans-serif;
-            }
-
-            .color-red {
-                fill: red;
-            }
-        </style>
     </div>
-
-
 
     <!-- スライド8: 完成後の学び -->
-    <div class="slide" id="slide8" style="display: none;">
-        <h1>完成後の学びや個人の感想</h1>
-        <p>1. チーム作業の重要性</p>
-        <p>2. 設計の重要性</p>
-        <p>3. フレームワークの基礎知識</p>
-        <p>4. 改善点</p>
-        <p>5. 各個人の感想</p>
+    <div class="slide min-h-screen flex-col p-8 bg-gradient-to-br from-indigo-50 to-purple-50" id="slide8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8 text-gray-800">完成後の学びや個人の感想</h1>
+            <div class="grid gap-6">
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <p class="text-xl text-gray-700">1. チーム作業の重要性</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <p class="text-xl text-gray-700">2. 設計の重要性</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <p class="text-xl text-gray-700">3. フレームワークの基礎知識</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <p class="text-xl text-gray-700">4. 改善点</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg">
+                    <p class="text-xl text-gray-700">5. 各個人の感想</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- スライド9: 質疑応答 -->
-    <div class="slide" id="slide9" style="display: none;">
-        <h1>質疑応答</h1>
-        <p>設計やチーム作業について質問はありますか？</p>
+    <div class="slide min-h-screen flex-col items-center justify-center p-8 bg-gradient-to-br from-blue-600 to-purple-700 text-white"
+        id="slide9">
+        <h1 class="text-6xl font-bold mb-8">質疑応答</h1>
+        <p class="text-2xl">設計やチーム作業について質問はありますか？</p>
     </div>
 
     <!-- ナビゲーションボタン -->
-    <div class="navigation">
-        <a class="button" onclick="prevSlide()">前へ<span></span></a>
-        <a class="button" onclick="nextSlide()">次へ<span></span></a>
+    <div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4">
+        <button onclick="prevSlide()"
+            class="px-6 py-3 bg-white text-gray-800 rounded-lg shadow-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            前へ
+        </button>
+        <button onclick="nextSlide()"
+            class="px-6 py-3 bg-white text-gray-800 rounded-lg shadow-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            次へ
+        </button>
     </div>
 
     <script>
         let currentSlide = 1;
-        const slide3D = document.querySelector('.slide3D');
+        //const slide3D = document.querySelector('.slide3D');
+
         function showSlide(slideNumber) {
             const slides = document.querySelectorAll('.slide');
             slides.forEach((slide, index) => {
-                slide.style.display = (index + 1 === slideNumber) ? 'flex' : 'none';
+                if (index + 1 === slideNumber) {
+                    slide.style.display = 'flex';
+                    slide.classList.add('active');
+                } else {
+                    slide.style.display = 'none';
+                    slide.classList.remove('active');
+                }
             });
         }
 
         function nextSlide() {
-            if (currentSlide < 9) { // スライド数を9に更新
+            if (currentSlide < 9) {
                 currentSlide++;
                 showSlide(currentSlide);
             }
@@ -196,22 +245,33 @@
                 showSlide(currentSlide);
             }
         }
-        // マウスの動きに反応してスライドを回転
-        slide3D.addEventListener('mousemove', (event) => {
-            const { clientX, clientY } = event;
-            const { left, top, width, height } = slide3D.getBoundingClientRect();
 
-            const x = (clientX - left) / width; // 0から1の範囲
-            const y = (clientY - top) / height; // 0から1の範囲
+        // 3Dエフェクト
+        /*
+        if (slide3D) {
+            slide3D.addEventListener('mousemove', (event) => {
+                const { clientX, clientY } = event;
+                const { left, top, width, height } = slide3D.getBoundingClientRect();
 
-            const rotateY = (x - 0.5) * 30; // 左右の回転
-            const rotateX = (0.5 - y) * 30; // 上下の回転
+                const x = (clientX - left) / width;
+                const y = (clientY - top) / height;
 
-            slide3D.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`; // 回転を適用
-        });
+                const rotateY = (x - 0.5) * 30;
+                const rotateX = (0.5 - y) * 30;
 
-        slide3D.addEventListener('mouseleave', () => {
-            slide3D.style.transform = 'rotateY(0deg) rotateX(0deg)'; // マウスが離れたときに戻す
+                slide3D.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+            });
+
+            slide3D.addEventListener('mouseleave', () => {
+                slide3D.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        }
+        */
+
+        // キーボードナビゲーション
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
         });
 
         // 初期スライドを表示
